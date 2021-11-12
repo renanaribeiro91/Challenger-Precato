@@ -5,16 +5,16 @@ export class Credor {
     @PrimaryColumn('uuid')
     id: number;
 
-    @Column()
+    @Column('character varying')
     identificadorCredor: string;
 
-    @Column()
+    @Column('character varying')
     nomeCredor: string;
 
-    @Column()
+    @Column('character varying')
     cpfCredor: string;
 
-    @Column()
+    @Column('character varying')
     statusCadastro: string;
 }
 

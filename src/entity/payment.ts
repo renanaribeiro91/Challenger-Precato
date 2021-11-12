@@ -8,30 +8,30 @@ export class Payment {
     @PrimaryColumn('uuid')
     id: number;
 
-    @Column()
+    @Column('character varying')
     identificadorRemessa: string;
 
     @OneToOne(type => Credor)
     @JoinColumn()
-    credor : Credor
+    Idcredor : Credor
 
     @OneToOne(type => Devedor)
     @JoinColumn()
-    devedor : Devedor
+    Iddevedor : Devedor
 
-    @Column()
+    @Column('decimal', { precision: 10, scale: 2 })
     valorInicial: Double;
 
-    @Column()
+    @Column('decimal', { precision: 10, scale: 2 })
     valorFinal: Double;
 
     @Column()
     data : Timestamp
 
-    @Column()
+    @Column('character varying')
     statusRemessa: string
 
-    @Column()
+    @Column('character varying')
     motivo : string | null
 }
 export default { Payment }

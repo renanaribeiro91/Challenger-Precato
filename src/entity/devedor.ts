@@ -5,13 +5,13 @@ export class Devedor {
     @PrimaryColumn('uuid')
     id: number;
 
-    @Column()
+    @Column('character varying')
     identificadorEnteDevedor: string;
 
-    @Column()
+    @Column('character varying')
     nomeEnteDevedor: string;
 
-    @Column()
+    @Column('character varying')
     cnpjEnteDevedor: string;
 }
 
