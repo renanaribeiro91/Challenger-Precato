@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { create, findAll, findOne } from 'src/repository/payment/payment'
+import { create, findAll, findOne } from 'src/model/repository/payment/payment'
 
 export const findAllpayment = async (req:Request, res:Response):Promise<Response> => {
   try {

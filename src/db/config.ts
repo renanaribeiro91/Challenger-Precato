@@ -1,4 +1,4 @@
-import { ConnectionOptions } from 'typeorm'
+/* import { ConnectionOptions } from 'typeorm'
 import path from 'path'
 import 'dotenv/config'
 
@@ -16,3 +16,4 @@ const config:ConnectionOptions = {
 }
 
 export default config
+*/

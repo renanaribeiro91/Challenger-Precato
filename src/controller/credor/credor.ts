@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { create, findAll, findOne } from 'src/repository/credor/credor'
+import { create, findAll, findOne } from 'src/model/repository/credor/credor'
 
 export const findAllCredor = async (req:Request, res:Response):Promise<Response> => {
   try {

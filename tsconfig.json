@@ -20,8 +20,8 @@
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
-      "@entity/*": ["./src/entity/*"],
-      "@repository/*": ["./src/repository/*"],
+      "@entity/*": ["src/model/entity/*"],
+      "@repository/*": ["src/model/repository/*"],
       "@config/*": ["./src/config/*"]
     }
   },
