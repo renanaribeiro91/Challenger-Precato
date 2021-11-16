@@ -1,12 +1,9 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity('Devedor')
 export class Devedor {
-    @PrimaryColumn('uuid')
-    id: number;
-
-    @Column('character varying')
-    identificadorEnteDevedor: string;
+    @PrimaryGeneratedColumn('uuid')
+    idDevedor: string;
 
     @Column('character varying')
     nomeEnteDevedor: string;

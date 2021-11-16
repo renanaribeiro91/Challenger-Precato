@@ -1,23 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Entity, Column, PrimaryColumn, Timestamp, Double, OneToOne, JoinColumn } from 'typeorm'
+import { Entity, Column, Double, OneToOne, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Credor } from './credor'
 import { Devedor } from './devedor'
 
 @Entity('Payment')
 export class Payment {
-    @PrimaryColumn('uuid')
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    idRemessa: string;
 
-    @Column('character varying')
-    identificadorRemessa: string;
-
-    @OneToOne(type => Credor)
+    @ManyToOne(type => Credor, credor => credor.idCredor)
     @JoinColumn()
-    Idcredor : Credor
+    idCredor : Credor
 
     @OneToOne(type => Devedor)
     @JoinColumn()
-    Iddevedor : Devedor
+    idDevedor : Devedor
 
     @Column('decimal', { precision: 10, scale: 2 })
     valorInicial: Double;
@@ -25,8 +22,8 @@ export class Payment {
     @Column('decimal', { precision: 10, scale: 2 })
     valorFinal: Double;
 
-    @Column()
-    data : Timestamp
+    @Column({ type: 'timestamp', nullable: true })
+    data: Date;
 
     @Column('character varying')
     statusRemessa: string

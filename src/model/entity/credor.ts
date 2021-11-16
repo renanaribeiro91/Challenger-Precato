@@ -1,21 +1,23 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { Payment } from './payment'
 
 @Entity('Credor')
 export class Credor {
-    @PrimaryColumn('uuid')
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    idCredor: string
 
     @Column('character varying')
-    identificadorCredor: string;
+    nomeCredor: string
 
     @Column('character varying')
-    nomeCredor: string;
+    cpfCredor: string
 
     @Column('character varying')
-    cpfCredor: string;
+    statusCadastro: string
 
-    @Column('character varying')
-    statusCadastro: string;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    @OneToMany(type => Payment, payment => payment.idRemessa)
+    payment: Payment[]
 }
 
 export default { Credor }

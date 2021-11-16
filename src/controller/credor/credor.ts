@@ -1,30 +1,36 @@
 import { Request, Response } from 'express'
-import { create, findAll, findOne } from 'src/model/repository/credor/credor'
+import { createCredor, findAllCredor, findOneCredor } from 'src/repository/credor/credor'
 
-export const findAllCredor = async (req:Request, res:Response):Promise<Response> => {
+const findAllCredorController = async (req:Request, res:Response):Promise<Response> => {
   try {
-    const credor = await findAll()
+    const credor = await findAllCredor()
     return res.status(200).send(credor)
   } catch (err) {
     return err
   }
 }
 
-export const findOneCredor = async (req:Request, res:Response):Promise<Response> => {
+const findOneCredorController = async (req:Request, res:Response):Promise<Response> => {
   const { _id } = req.params
   try {
-    const credor = await findOne(_id)
+    const credor = await findOneCredor(_id)
     return res.status(200).send(credor)
   } catch (err) {
     return err
   }
 }
 
-export const createCredor = async (req:Request, res:Response):Promise<Response> => {
+const createCredorController = async (req:Request, res:Response):Promise<Response> => {
   try {
-    const credor = await create(req.body)
+    const credor = await createCredor(req.body)
     return res.status(200).send(credor)
   } catch (err) {
     return err
   }
+}
+
+export {
+  findAllCredorController,
+  findOneCredorController,
+  createCredorController
 }
